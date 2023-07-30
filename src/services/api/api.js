@@ -10,9 +10,10 @@ const methods = [
 const axiosWrapper = {};
 
 const queryStringBuilder = query => Object.keys(query).length ? '?' + Object.keys(query).map(k => `${k}=${query[k]}`).join('&') : '';
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: VITE_API_URL
 });
 
 for (const method of methods) {
